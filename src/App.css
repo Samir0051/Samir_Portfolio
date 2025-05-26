@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  width: 100%;
+  text-align: left; /* or center—your choice */
+}
+
+/* full-screen, non-interactive animated gradient behind everything */
+#edge-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;  height: 100vh;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    #f00, #f90, #ff0, #0f0, #0ff, #00f, #90f, #f0f, #f00
+  );
+  background-size: 200%;
+  z-index: 0;                 /* put it behind your content */
+  animation: edgeGlow 10s infinite;
+}
