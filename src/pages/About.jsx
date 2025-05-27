@@ -64,7 +64,7 @@ export default function About() {
               scale={1.05}
             >
               <div className="
-                w-[450px] h-[450px] rounded-xl overflow-hidden
+                w-64 h-64 sm:w-80 sm:h-80 md:w-[450px] md:h-[450px] rounded-xl overflow-hidden
                 border-4 border-transparent hover:border-emerald-400
                 hover:shadow-[0_0_15px_4px_rgba(16,185,129,0.4)]
                 transition-all duration-500
