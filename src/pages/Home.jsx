@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-
 import img1 from '../assets/logo/img1.png'
 import img2 from '../assets/logo/img2.png'
 import img3 from '../assets/logo/img3.png'
@@ -14,10 +13,9 @@ export default function Home() {
   const [index, setIndex] = useState(0)
   const images = [img1, img2, img3, img4, img5, img6, img7]
   const altImages = [img8a, img8b]
-
+  const title = "Welcome to Samir's Site".split("")
   useEffect(() => {
     const interval = setInterval(() => {
-      // If we've shown the first 7, toggle between the last 2
       if (index >= images.length) {
         setIndex(prev => (prev === images.length ? images.length + 1 : images.length))
       } else {
@@ -38,8 +36,20 @@ export default function Home() {
         className="w-75 h-72 object-contain transition-opacity duration-300"
       />
 
-      <h2 className="text-3xl font-bold text-white mt-8">Welcome to Samir's Site 🥳</h2>
-      <p className="text-white text-center mt-2">Click on tabs to explore!</p>
+      <h2 className="flex flex-wrap justify-center mt-10">
+        {"Welcome to My Portfolio".split("").map((char, i) => (
+        <span
+        key={i}
+        className={`letter-stroke animate-float mx-[1px] text-4xl sm:text-5xl font-extrabold transition-transform duration-300 hover:-translate-y-2`}
+        style={{ animationDelay: `${i * 100}ms` }}
+        >
+        {char === " " ? "\u00A0" : char}
+        </span>
+        ))}
+        </h2>
+      <p className="mt-4 text-lg sm:text-xl text-white/90 tracking-wide font-medium text-center px-4">
+        🚀 Click on the tabs above and start exploring!
+      </p>
     </div>
   )
 }

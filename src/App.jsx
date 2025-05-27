@@ -136,8 +136,8 @@ export default function App() {
       className="
         w-full
         py-4
-        bg-gray-900
-        border-t border-gray-800
+        bg-black
+        border-t border-emerald-800
         text-center
         text-gray-300
         text-sm

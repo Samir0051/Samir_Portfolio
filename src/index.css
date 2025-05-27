@@ -76,3 +76,26 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.letter-stroke {
+  position: relative;
+  color: white;
+  display: inline-block;
+  background: linear-gradient(to right, #34d399, #3b82f6, #8bcffa);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 5.5px transparent;
+  background-clip: text;
+  text-shadow:
+    2px 0 #34d399, -2px 0 #3b82f6,
+    0 2px #007840, 0 -2px #3b82f6;
+}

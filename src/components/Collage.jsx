@@ -14,16 +14,16 @@ import Img9 from '../assets/collage/studying.jpg'
 import Img10 from '../assets/collage/thunderbolts.jpg'
 
 const photos = [
-  { id: 1, src: Img1, caption: 'Me at Columbia Convocation, May 2024.' },
-  { id: 2, src: Img2, caption: 'Basquiat & Warhol exhibit, Fall 2022.' },
-  { id: 3, src: Img3, caption: 'Biking through NYC, Summer 2023.' },
-  { id: 4, src: Img4, caption: 'Boston College visit, Spring 2023.' },
-  { id: 5, src: Img5, caption: 'Dune II launch party, Feb 2024.' },
-  { id: 6, src: Img6, caption: 'Isabella Gardner Museum, Winter 2022.' },
-  { id: 7, src: Img7, caption: 'Oreo taste test, Jun 2021.' },
-  { id: 8, src: Img8, caption: 'Skating through NYC, Spring 2023.' },
-  { id: 9, src: Img9, caption: 'Studying with friends, Fall 2023.' },
-  { id: 10, src: Img10, caption: 'Thor: Love and Thunder, Jul 2022.' },
+  { id: 1, src: Img1, caption: 'Drawing of Concho at Puerto Rican Museum' },
+  { id: 2, src: Img2, caption: 'Basquiat & Warhol exhibit that I like the artwork for' },
+  { id: 3, src: Img3, caption: 'Biking through NYC with friends' },
+  { id: 4, src: Img4, caption: 'Boston College visit' },
+  { id: 5, src: Img5, caption: 'Dune II priemere' },
+  { id: 6, src: Img6, caption: 'Isabella Gardner Museum' },
+  { id: 7, src: Img7, caption: 'Oreo my dog :)' },
+  { id: 8, src: Img8, caption: 'Skating through NYC again with friends' },
+  { id: 9, src: Img9, caption: 'Studying by myself with a redbull' },
+  { id: 10, src: Img10, caption: 'Tried watching Thunderbolts with my friends and the theater got evacuated :(' },
 ]
 const IMG_SIZE = 160 // base image size in px (w-40/h-40)
 
