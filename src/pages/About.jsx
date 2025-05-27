@@ -33,7 +33,7 @@ const items = [
 
 export default function About() {
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen px-6 py-12 max-w-6xl mx-auto">
+    <div className="dark flex flex-col items-center justify-start min-h-screen px-6 py-12 max-w-6xl mx-auto">
       <h2
         className="
           font-extrabold mb-12 text-4xl sm:text-5xl md:text-6xl

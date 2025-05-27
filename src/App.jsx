@@ -132,9 +132,20 @@ export default function App() {
           <Route path="*"      element={<p>Page not found.</p>} />
         </Routes>
       </div>
-      <footer className="mt-8 py-4 text-center text-white">
-        @Made by Samir - For Fun
-      </footer>
+      <footer
+      className="
+        w-full
+        py-4
+        bg-gray-900
+        border-t border-gray-800
+        text-center
+        text-gray-300
+        text-sm
+        select-none
+      "
+    >
+      @ {new Date().getFullYear()} Samir — For Fun
+    </footer>
     </>
   )
 }

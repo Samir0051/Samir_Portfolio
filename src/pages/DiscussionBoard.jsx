@@ -42,6 +42,7 @@ export default function DiscussionBoard() {
   }
 
   return (
+  <div className="dark bg-gray-900 min-h-screen">
     <div className="p-8 max-w-6xl mx-auto">
       <h2 className=" font-extrabold mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl px-4
           bg-gradient-to-r from-emerald-800 via-emerald-400 to-emerald-500
@@ -56,14 +57,20 @@ export default function DiscussionBoard() {
           placeholder="Your name"
           value={user}
           onChange={(e) => setUser(e.target.value)}
-          className="p-2 rounded border border-gray-300 w-full mb-2 focus:border-emerald-500 focus:outline-none"
+          className="
+            p-2 rounded border border-gray-300 w-full mb-2 focus:border-emerald-500 focus:outline-none
+            dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:focus:border-emerald-400
+          "
         />
         <textarea
           placeholder="Your message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={3}
-          className="p-2 rounded border border-gray-300 w-full mb-2 focus:border-emerald-500 focus:outline-none"
+          className="
+            p-2 rounded border border-gray-300 w-full mb-2 focus:border-emerald-500 focus:outline-none
+            dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:focus:border-emerald-400
+          "
         />
         <button
           type="submit"
@@ -86,6 +93,7 @@ export default function DiscussionBoard() {
               transition-all duration-300
               hover:bg-gradient-to-br hover:from-emerald-500/30 hover:to-emerald-600/30
               cursor-pointer
+              dark:text-white
             `}
           >
             <p className="text-white/90 whitespace-pre-wrap font-semibold">{post.message}</p>
@@ -96,5 +104,6 @@ export default function DiscussionBoard() {
         ))}
       </div>
     </div>
-  )
+  </div>
+)
 }
