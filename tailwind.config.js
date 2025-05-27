@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import plugin from 'tailwindcss/plugin'
 export default {
   content: [
     "./index.html",
@@ -7,6 +8,13 @@ export default {
   theme: {
     extend: {
       keyframes: {
+        float3D: {
+          '0%':   { transform: 'rotateX(8deg) rotateY(0deg)' },
+          '25%':  { transform: 'rotateX(10deg) rotateY(3deg)' },
+          '50%':  { transform: 'rotateX(8deg) rotateY(0deg)' },
+          '75%':  { transform: 'rotateX(6deg) rotateY(-3deg)' },
+          '100%': { transform: 'rotateX(8deg) rotateY(0deg)' },
+        },
         glow: {
           "0%, 100%": { borderColor: "#f00" },
           "25%":      { borderColor: "#0f0" },
@@ -26,11 +34,18 @@ export default {
         glow:      "glow 3s ease-in-out infinite",
         edgeGlow:  "edgeGlow 10s ease infinite",
         "text-slide": "text-slide 4s ease infinite",
+        float3D: 'float3D 5s ease-in-out infinite',
       },
       backgroundSize: {
         "200%": "200% 200%",
       },
     },
   },
-  plugins: [],
+  plugins: [plugin(function ({ addUtilities }) {
+      addUtilities({
+        '.perspective-800': { perspective: '800px' },
+        '.preserve-3d': { 'transform-style': 'preserve-3d' },
+        '.backface-hidden':    { 'backface-visibility': 'hidden' },
+      })
+    }),],
 }

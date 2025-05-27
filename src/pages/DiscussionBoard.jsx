@@ -43,7 +43,7 @@ export default function DiscussionBoard() {
 
   return (
     <div className="p-8 max-w-6xl mx-auto">
-      <h2 className="text-6xl font-extrabold mb-6
+      <h2 className=" font-extrabold mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl px-4
           bg-gradient-to-r from-emerald-800 via-emerald-400 to-emerald-500
           bg-clip-text text-transparent
           text-center">
