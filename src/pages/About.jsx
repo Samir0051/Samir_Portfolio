@@ -26,7 +26,7 @@ const items = [
       </>,
       <>🎮 I’m into video games with a strong passion for platformers.</>,
       <>🌲 I love being outdoors, whether that’s walking through the city or skating with friends.</>,
-      <>✨ …and more!</>
+      <>✨ I'm also big into art museums and history!</>
     ]
   },
 ]

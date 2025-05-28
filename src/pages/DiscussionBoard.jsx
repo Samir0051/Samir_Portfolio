@@ -42,68 +42,63 @@ export default function DiscussionBoard() {
   }
 
   return (
-  <div className="dark bg-grey-800 min-h-screen">
-    <div className="p-8 max-w-6xl mx-auto">
-      <h2 className=" font-extrabold mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl px-4
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-300">
+      <div className="p-8 max-w-6xl mx-auto">
+        <h2 className="font-extrabold mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl px-4
           bg-gradient-to-r from-emerald-800 via-emerald-400 to-emerald-500
           bg-clip-text text-transparent
           text-center">
           Discussion Board
         </h2>
 
-      <form onSubmit={handleSubmit} className="mb-6">
-        <input
-          type="text"
-          placeholder="Your name"
-          value={user}
-          onChange={(e) => setUser(e.target.value)}
-          className="
-            p-2 rounded border border-gray-300 w-full mb-2 focus:border-emerald-500 focus:outline-none
-            dark:bg-grey-300 dark:border-gray-800 dark:text-white dark:focus:border-emerald-400
-          "
-        />
-        <textarea
-          placeholder="Your message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          rows={3}
-          className="
-            p-2 rounded border border-gray-300 w-full mb-2 focus:border-emerald-500 focus:outline-none
-            dark:bg-grey-300 dark:border-gray-800 dark:text-white dark:focus:border-emerald-400
-          "
-        />
-        <button
-          type="submit"
-          className="block mx-auto bg-emerald-600 hover:bg-emerald-500 transition text-white px-6 py-2 rounded"
-        >
-          Add Message
-        </button>
-      </form>
-
-      {/* Post-it board with glassmorphism */}
-      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-5xl">
-        {posts.map((post, idx) => (
-          <div
-            key={post.id || idx}
-            className={`
-              relative
-              bg-white/20 backdrop-blur-md border border-white/30
-              p-6 rounded-xl shadow-lg
-              transform ${rotations[idx % rotations.length]} hover:rotate-0
-              transition-all duration-300
-              hover:bg-gradient-to-br hover:from-emerald-500/30 hover:to-emerald-600/30
-              cursor-pointer
-              dark:text-white
-            `}
+        <form onSubmit={handleSubmit} className="mb-6">
+          <input
+            type="text"
+            placeholder="Your name"
+            value={user}
+            onChange={(e) => setUser(e.target.value)}
+            className="p-2 rounded border border-gray-300 w-full mb-2
+              focus:border-emerald-500 focus:outline-none
+              dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          />
+          <textarea
+            placeholder="Your message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            rows={3}
+            className="p-2 rounded border border-gray-300 w-full mb-2
+              focus:border-emerald-500 focus:outline-none
+              dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          />
+          <button
+            type="submit"
+            className="block mx-auto bg-emerald-600 hover:bg-emerald-500 transition text-white px-6 py-2 rounded"
           >
-            <p className="text-white/90 whitespace-pre-wrap font-semibold">{post.message}</p>
-            <span className="block mt-4 text-sm font-semibold text-white/60">
-              — {post.user}
-            </span>
-          </div>
-        ))}
+            Add Message
+          </button>
+        </form>
+
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-5xl">
+          {posts.map((post, idx) => (
+            <div
+              key={post.id || idx}
+              className={`
+                relative p-6 rounded-xl shadow-lg
+                transform ${rotations[idx % rotations.length]} hover:rotate-0
+                transition-all duration-300
+                hover:bg-gradient-to-br hover:from-emerald-500/30 hover:to-emerald-600/30
+                cursor-pointer
+                bg-white dark:bg-white/20 backdrop-blur-md border border-gray-200 dark:border-white/30
+              `}
+            >
+              <p className="text-gray-900 dark:text-white whitespace-pre-wrap font-semibold">{post.message}</p>
+              <span className="block mt-4 text-sm font-semibold text-gray-600 dark:text-white/60">
+                — {post.user}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  </div>
-)
+  )
 }

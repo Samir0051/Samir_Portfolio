@@ -40,7 +40,8 @@ export default function Home() {
         {"Welcome to My Portfolio".split("").map((char, i) => (
         <span
         key={i}
-        className={`letter-stroke animate-float mx-[1px] text-4xl sm:text-5xl font-extrabold transition-transform duration-300 hover:-translate-y-2`}
+        data-char={char}
+        className="letter-stroke mx-[1px] text-4xl sm:text-5xl font-extrabold transition-transform duration-300 hover:-translate-y-2"
         style={{ animationDelay: `${i * 100}ms` }}
         >
         {char === " " ? "\u00A0" : char}

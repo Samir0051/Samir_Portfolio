@@ -87,15 +87,41 @@ button:focus-visible {
   animation: float 3s ease-in-out infinite;
 }
 
+@keyframes gradient-stroke {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .letter-stroke {
   position: relative;
-  color: white;
   display: inline-block;
-  background: linear-gradient(to right, #34d399, #3b82f6, #8bcffa);
+  color: white;
+  font-weight: 800;
+  font-size: inherit;
+  text-align: center;
+  animation: float 3s ease-in-out infinite;
+  overflow: visible;
+}
+
+.letter-stroke::before {
+  content: attr(data-char);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 4.5px transparent;
+  background: linear-gradient(270deg, #34d399, #3b82f6, #a78bfa, #34d399);
+  background-size: 400% 400%;
   -webkit-background-clip: text;
-  -webkit-text-stroke: 5.5px transparent;
   background-clip: text;
-  text-shadow:
-    2px 0 #34d399, -2px 0 #3b82f6,
-    0 2px #007840, 0 -2px #3b82f6;
+  animation: gradient-border 4s linear infinite;
 }
