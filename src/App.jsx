@@ -31,6 +31,7 @@ export default function App() {
 
   return (
     <>
+    <div className="dark">
       {/* Navbar */}
       <style>{`
         @keyframes float3D {
@@ -146,6 +147,7 @@ export default function App() {
     >
       @ {new Date().getFullYear()} Samir — For Fun
     </footer>
+    </div>
     </>
   )
 }

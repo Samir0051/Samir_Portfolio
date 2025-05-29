@@ -8,6 +8,9 @@ import img6 from '../assets/logo/img6.png'
 import img7 from '../assets/logo/img7.png'
 import img8a from '../assets/logo/img8a.png'
 import img8b from '../assets/logo/img8b.png'
+import githubicon from '../assets/icons/github.png'
+import linkedinicon from '../assets/icons/linkedin.png'
+import spotifyicon from '../assets/icons/spotify.png'
 
 export default function Home() {
   const [index, setIndex] = useState(0)
@@ -48,9 +51,21 @@ export default function Home() {
         </span>
         ))}
         </h2>
-      <p className="mt-4 text-lg sm:text-xl text-white/90 tracking-wide font-medium text-center px-4">
+        <p className="mt-4 text-lg sm:text-xl text-white/90 tracking-wide font-medium text-center px-4">
         🚀 Click on the tabs above and start exploring!
-      </p>
+        </p>
+
+        <div className="mt-8 grid grid-cols-3 sm:grid-cols-3 gap-6">
+        <a href="https://github.com/Samir0051" target="_blank" rel="noopener noreferrer">
+        <img src={githubicon} alt="GitHub" className="w-10 h-10 hover:scale-110 transition-transform" />
+        </a>
+        <a href="https://www.linkedin.com/in/samir-sanchez-3ac/" target="_blank" rel="noopener noreferrer">
+        <img src={linkedinicon} alt="LinkedIn" className="w-10 h-10 hover:scale-110 transition-transform" />
+        </a>
+        <a href="https://open.spotify.com/user/cqjiv06y90p950gwgabnog682?si=4dbe599d95f84eae" target="_blank" rel="noopener noreferrer">
+        <img src={spotifyicon} alt="Spotify" className="w-10 h-10 hover:scale-110 transition-transform" />
+        </a>
+        </div>
     </div>
   )
 }

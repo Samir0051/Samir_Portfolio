@@ -1,5 +1,5 @@
 // src/pages/About.jsx
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Tilt from 'react-parallax-tilt'
 
@@ -31,9 +31,68 @@ const items = [
   },
 ]
 
+const SPOTIFY_CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID
+const SPOTIFY_CLIENT_SECRET = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET
+const SPOTIFY_REFRESH_TOKEN = import.meta.env.VITE_SPOTIFY_REFRESH_TOKEN
+
+async function getAccessToken() {
+  const creds = btoa(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`)
+  const response = await fetch('https://accounts.spotify.com/api/token', {
+    method: 'POST',
+    headers: {
+      Authorization: `Basic ${creds}`,
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: new URLSearchParams({
+      grant_type: 'refresh_token',
+      refresh_token: SPOTIFY_REFRESH_TOKEN,
+    }),
+  })
+  const data = await response.json()
+  return data.access_token
+}
+
+async function getCurrentlyPlaying(accessToken) {
+  const response = await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  })
+  if (response.status === 204 || response.status >= 400) {
+    return null
+  }
+  const data = await response.json()
+  return data
+}
+
 export default function About() {
+  const [currentTrack, setCurrentTrack] = useState(null)
+
+  useEffect(() => {
+    async function fetchNowPlaying() {
+      try {
+        const token = await getAccessToken()
+        const playing = await getCurrentlyPlaying(token)
+        if (playing && playing.item) {
+          setCurrentTrack(playing.item.uri)
+        } else {
+          setCurrentTrack(null)
+        }
+      } catch (error) {
+        console.error('Error fetching Spotify now playing:', error)
+        setCurrentTrack(null)
+      }
+    }
+
+    fetchNowPlaying()
+    const interval = setInterval(fetchNowPlaying, 30000) // Refresh every 30 seconds
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
-    <div className="dark flex flex-col items-center justify-start min-h-screen px-6 py-12 max-w-6xl mx-auto">
+    <div className="min-h-screen w-full bg-white dark:bg-neutral-800">
+        <div className="p-8 max-w-5xl mx-auto">
       <h2
         className="
           font-extrabold mb-12 text-4xl sm:text-5xl md:text-6xl
@@ -96,7 +155,28 @@ export default function About() {
         ))}
       </div>
 
-      <div className="w-full overflow-visible">
+      {/* Spotify Now Playing Section */}
+      <div className="w-full mt-16 flex flex-col items-center">
+        <h3 className="text-3xl text-emerald-400 font-bold mb-10">What I'm Listening To Right Now 🎧</h3>
+        {currentTrack ? (
+        <div className="rounded-lg bg-emerald-900/80 p-4 shadow-lg">
+        <iframe
+                src={`https://open.spotify.com/embed/track/${currentTrack.split(':').pop()}`}
+                width="300"
+                height="80"
+                frameBorder="0"
+                allowtransparency="true"
+                allow="encrypted-media"
+                title="Spotify Now Playing"
+                className="rounded-md"
+        />
+        </div>
+        ) : (
+        <p className="italic text-gray-500">Not playing anything right now.</p>
+        )}
+      </div>
+
+      <div className="w-full overflow-visible mt-5">
         <h2
           className="
             font-extrabold text-4xl sm:text-5xl md:text-6xl
@@ -109,6 +189,7 @@ export default function About() {
         <div className="w-full flex justify-center mt-16">
           <Collage />
         </div>
+      </div>
       </div>
     </div>
   )
