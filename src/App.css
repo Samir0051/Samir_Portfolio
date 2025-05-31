@@ -4,20 +4,29 @@
 
 #root {
   width: 100%;
-  text-align: left; /* or center—your choice */
+  text-align: left;
 }
 
-/* full-screen, non-interactive animated gradient behind everything */
 #edge-overlay {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw;  height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
   background: linear-gradient(
     90deg,
-    #f00, #f90, #ff0, #0f0, #0ff, #00f, #90f, #f0f, #f00
+    #f00,
+    #f90,
+    #ff0,
+    #0f0,
+    #0ff,
+    #00f,
+    #90f,
+    #f0f,
+    #f00
   );
   background-size: 200%;
-  z-index: 0;                 /* put it behind your content */
+  z-index: 0;
   animation: edgeGlow 10s infinite;
 }

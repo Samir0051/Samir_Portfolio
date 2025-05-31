@@ -1,11 +1,13 @@
-// src/App.jsx
-import { Routes, Route, Link } from 'react-router-dom'
-import DiscussionBoard from './pages/DiscussionBoard'
-import About from './pages/About'
-import Home from './pages/Home'
-import Projects from './pages/Projects'
+import { Routes, Route } from "react-router-dom";
+import DiscussionBoard from "./pages/DiscussionBoard";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Projects from "./pages/Projects";
 import { createClient } from "@supabase/supabase-js";
-const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY);
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
+);
 
 <style>
   {`
@@ -17,23 +19,26 @@ const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env
       100% { transform: rotateX(8deg) rotateY(0deg); }
     }
   `}
-</style>
-
+</style>;
 
 export default function App() {
   const links = [
-    { to: '/',           label: 'Home' },
-    { to: '/about',      label: 'About' },
-    { to: '/discussion', label: 'Discussion Board' },
-    { to: '/projects',   label: 'Projects' },
-    { to: 'https://github.com/Samir0051/Samir_Portfolio', label: 'Docs', isExternal: true },
-  ]
+    { to: "/", label: "Home" },
+    { to: "/about", label: "About" },
+    { to: "/discussion", label: "Discussion Board" },
+    { to: "/projects", label: "Projects" },
+    {
+      to: "https://github.com/Samir0051/Samir_Portfolio",
+      label: "Docs",
+      isExternal: true,
+    },
+  ];
 
   return (
     <>
-    <div className="dark">
-      {/* Navbar */}
-      <style>{`
+      <div className="dark">
+        {/* Navbar */}
+        <style>{`
         @keyframes float3D {
           0%, 100% {
             transform: rotateX(15deg) rotateY(-10deg) translateY(0px);
@@ -79,62 +84,63 @@ export default function App() {
         }
       `}</style>
 
-      <nav className="
+        <nav
+          className="
         w-full bg-gray-950 shadow px-6 py-4
         flex flex-col items-center   /* center everything in the column */
         sm:flex-row sm:justify-between sm:items-center
         space-y-4 sm:space-y-0
-      ">
-      <div className="
+      "
+        >
+          <div
+            className="
           text-xl font-bold
           bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600
           bg-clip-text text-transparent
           bg-[length:200%_200%] animate-text-slide
-        ">
-        Samir
-      </div>
-      
-      <ul className="
+        "
+          >
+            Samir
+          </div>
+
+          <ul
+            className="
           flex flex-col items-center /* center links under the title */
           sm:flex-row sm:space-x-4
           space-y-2 sm:space-y-0
-        ">
-        {links.map((link) => (
-          <li key={link.label} className="perspective-800">
-            <a
-              href={link.to}
-              target={link.isExternal ? "_blank" : undefined}
-              rel={link.isExternal ? "noopener noreferrer" : undefined}
-              className="
+        "
+          >
+            {links.map((link) => (
+              <li key={link.label} className="perspective-800">
+                <a
+                  href={link.to}
+                  target={link.isExternal ? "_blank" : undefined}
+                  rel={link.isExternal ? "noopener noreferrer" : undefined}
+                  className="
                 block px-4 py-2 bg-white/20 backdrop-blur-md border border-white/30
                 rounded-lg shadow-lg text-white font-medium
 
                 transform-gpu transition-transform duration-300 ease-out
                 float-3d hover:shadow-xl
               "
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-
-
-
-
-      {/* Route outlet */}
-      <div>
-        <Routes>
-          <Route path="/"      element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/discussion" element={<DiscussionBoard />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="*"      element={<p>Page not found.</p>} />
-        </Routes>
-      </div>
-      <footer
-      className="
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/discussion" element={<DiscussionBoard />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="*" element={<p>Page not found.</p>} />
+          </Routes>
+        </div>
+        <footer
+          className="
         w-full
         py-4
         bg-black
@@ -144,10 +150,10 @@ export default function App() {
         text-sm
         select-none
       "
-    >
-      @ {new Date().getFullYear()} Samir — For Fun
-    </footer>
-    </div>
+        >
+          @ {new Date().getFullYear()} Samir — For Fun
+        </footer>
+      </div>
     </>
-  )
+  );
 }
