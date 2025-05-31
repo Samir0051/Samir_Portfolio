@@ -1,4 +1,4 @@
-# 🚀 Samir's Portfolio Website
+# 🚀 Samir's Portfolio Website using JavaScript, React, TailwindCSS, PostgreSQL (Supabase) + Spotify API
 
 Welcome to my digital playground! 👨‍💻  
 This site is a live showcase of my projects, ideas, and web experiments — built with modern technologies and designed for smooth interaction.
