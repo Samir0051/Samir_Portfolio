@@ -11,7 +11,7 @@ const featuredProject = {
   imageUrl: featuredImage,
   url: "https://github.com/Samir0051/building_research_taxonomy",
   tags: ["AI/ML", "Bioinformatics", "Research", "LLM"],
-  stats: { commits: "18", lines: "1,000+", duration: "8 months" },
+  stats: { commits: "23", lines: "1,000+", duration: "8 months" },
 };
 
 const timelineProjects = [
