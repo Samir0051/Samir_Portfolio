@@ -3,11 +3,21 @@
 @tailwind utilities;
 
 @keyframes float3D {
-  0%   { transform: rotateX(8deg) rotateY(0deg); }
-  25%  { transform: rotateX(10deg) rotateY(3deg); }
-  50%  { transform: rotateX(8deg) rotateY(0deg); }
-  75%  { transform: rotateX(6deg) rotateY(-3deg); }
-  100% { transform: rotateX(8deg) rotateY(0deg); }
+  0% {
+    transform: rotateX(8deg) rotateY(0deg);
+  }
+  25% {
+    transform: rotateX(10deg) rotateY(3deg);
+  }
+  50% {
+    transform: rotateX(8deg) rotateY(0deg);
+  }
+  75% {
+    transform: rotateX(6deg) rotateY(-3deg);
+  }
+  100% {
+    transform: rotateX(8deg) rotateY(0deg);
+  }
 }
 
 :root {
@@ -78,9 +88,15 @@ button:focus-visible {
 }
 
 @keyframes float {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-6px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .animate-float {
@@ -119,7 +135,7 @@ button:focus-visible {
   font-weight: 800;
   color: transparent;
   -webkit-text-stroke: 4.5px transparent;
-  background: linear-gradient(270deg, #34d399, #3b82f6, #a78bfa, #34d399);
+  background: linear-gradient(270deg, #727272, #696969, #3e3e3e, #939393);
   background-size: 400% 400%;
   -webkit-background-clip: text;
   background-clip: text;
